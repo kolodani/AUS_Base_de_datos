@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-20T18:23:10.556Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="yeNncLhzwnHErythwoHf" version="21.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-20T18:32:12.756Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="npwwks1v_RKiFNtsJeK-" version="21.5.0" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="1644" dy="394" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -190,7 +190,7 @@
         <mxCell id="D47qw9EcfBguY9dzHqrJ-23" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="490" y="300" width="170" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="D47qw9EcfBguY9dzHqrJ-21" value="Es_El_Nombre_Original" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="D47qw9EcfBguY9dzHqrJ-23" vertex="1">
+        <mxCell id="D47qw9EcfBguY9dzHqrJ-21" value="Nombre_Original" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="D47qw9EcfBguY9dzHqrJ-23" vertex="1">
           <mxGeometry x="10" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="D47qw9EcfBguY9dzHqrJ-22" value="" style="shape=waypoint;sketch=0;fillStyle=solid;size=6;pointerEvents=1;points=[];fillColor=none;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;" parent="D47qw9EcfBguY9dzHqrJ-23" vertex="1">
