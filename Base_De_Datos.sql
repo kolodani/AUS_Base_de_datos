@@ -1,0 +1,155 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'GENEROS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `GENEROS`;
+		
+CREATE TABLE `GENEROS` (
+  `ID_Genero` VARCHAR(32) NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Genero` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`ID_Genero`)
+);
+
+-- ---
+-- Table 'PELICULAS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `PELICULAS`;
+		
+CREATE TABLE `PELICULAS` (
+  `ID_pelicula` VARCHAR(32) NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Pelicula` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `Orden_Saga` DECIMAL(32) NOT NULL DEFAULT NULL,
+  `Duracion` INTEGER(10000) NOT NULL DEFAULT NULL,
+  `Año_de_Estreno` YEAR NOT NULL DEFAULT NULL,
+  PRIMARY KEY (`ID_pelicula`)
+);
+
+-- ---
+-- Table 'IDIOMA'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `IDIOMA`;
+		
+CREATE TABLE `IDIOMA` (
+  `ID_Idioma` VARCHAR NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Idioma` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`ID_Idioma`)
+);
+
+-- ---
+-- Table 'PERSONAJE'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `PERSONAJE`;
+		
+CREATE TABLE `PERSONAJE` (
+  `ID_Personaje` VARCHAR(32) NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Personaje` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `Rol` CHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`ID_Personaje`)
+);
+
+-- ---
+-- Table 'PREMIOS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `PREMIOS`;
+		
+CREATE TABLE `PREMIOS` (
+  `ID_Premio` VARCHAR(32) NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Premio` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  `Categoria` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`ID_Premio`)
+);
+
+-- ---
+-- Table 'PERSONA'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `PERSONA`;
+		
+CREATE TABLE `PERSONA` (
+  `ID_Persona` VARCHAR NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Persona` VARCHAR NOT NULL DEFAULT 'NULL',
+  `Edad` INT(200) NOT NULL DEFAULT NULL,
+  PRIMARY KEY (`ID_Persona`)
+);
+
+-- ---
+-- Table 'CANCIONES'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `CANCIONES`;
+		
+CREATE TABLE `CANCIONES` (
+  `ID_Cancion` VARCHAR(32) NOT NULL DEFAULT 'NULL',
+  `Nombre_Cancion` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`ID_Cancion`)
+);
+
+-- ---
+-- Table 'BANDA SONORA'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `BANDA SONORA`;
+		
+CREATE TABLE `BANDA SONORA` (
+  `ID_Banda_Sonora` VARCHAR(32) NOT NULL AUTO_INCREMENT DEFAULT 'NULL',
+  `Nombre_Banda_Sonora` VARCHAR(100) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`ID_Banda_Sonora`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `GENEROS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `PELICULAS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `IDIOMA` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `PERSONAJE` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `PREMIOS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `PERSONA` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `CANCIONES` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `BANDA SONORA` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `GENEROS` (`ID_Genero`,`Nombre_Genero`) VALUES
+-- ('','');
+-- INSERT INTO `PELICULAS` (`ID_pelicula`,`Nombre_Pelicula`,`Orden_Saga`,`Duracion`,`Año_de_Estreno`) VALUES
+-- ('','','','','');
+-- INSERT INTO `IDIOMA` (`ID_Idioma`,`Nombre_Idioma`) VALUES
+-- ('','');
+-- INSERT INTO `PERSONAJE` (`ID_Personaje`,`Nombre_Personaje`,`Rol`) VALUES
+-- ('','','');
+-- INSERT INTO `PREMIOS` (`ID_Premio`,`Nombre_Premio`,`Categoria`) VALUES
+-- ('','','');
+-- INSERT INTO `PERSONA` (`ID_Persona`,`Nombre_Persona`,`Edad`) VALUES
+-- ('','','');
+-- INSERT INTO `CANCIONES` (`ID_Cancion`,`Nombre_Cancion`) VALUES
+-- ('','');
+-- INSERT INTO `BANDA SONORA` (`ID_Banda_Sonora`,`Nombre_Banda_Sonora`) VALUES
+-- ('','');
