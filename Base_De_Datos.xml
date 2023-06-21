@@ -38,24 +38,21 @@
             <type label="Bit" length="0" sql="bit" quote=""/>
         </group>
     </datatypes>
-    <table x="110" y="435" name="GENEROS">
+    <table x="210" y="468" name="GENEROS">
         <row name="ID_Genero" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
             <relation table="PELICULAS_GENEROS" row="ID_Genero" />
         </row>
         <row name="Nombre_Genero" null="0" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Genero</part>
         </key>
     </table>
-    <table x="650" y="547" name="PELICULAS">
+    <table x="621" y="538" name="PELICULAS">
         <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
             <relation table="PELICULAS_GENEROS" row="ID_Pelicula" />
             <relation table="Lengua_PELICULAS_IDIOMAS" row="ID_Pelicula" />
             <relation table="Subtitulos_PELICULAS_IDIOMAS" row="ID_Pelicula" />
@@ -64,20 +61,16 @@
             <relation table="Participacion_PELICULAS_PERSONAS" row="ID_Pelicula" />
         </row>
         <row name="Nombre_Pelicula" null="1" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>NULL</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <row name="Orden_Saga" null="0" autoincrement="0">
-            <datatype>DECIMAL</datatype>
-            <default>NULL</default>
+            <datatype>INTEGER</datatype>
         </row>
         <row name="Duracion" null="0" autoincrement="0">
-            <datatype>TIME(2000)</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
         </row>
         <row name="Año_de_estreno" null="0" autoincrement="0">
             <datatype>YEAR</datatype>
-            <default>NULL</default>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Pelicula</part>
@@ -85,35 +78,30 @@
     </table>
     <table x="662" y="763" name="IDIOMAS">
         <row name="ID_Idioma" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
             <relation table="Lengua_PELICULAS_IDIOMAS" row="ID_Idioma" />
             <relation table="Subtitulos_PELICULAS_IDIOMAS" row="ID_Idioma" />
             <relation table="Titulos_PELICULAS_IDIOMAS" row="ID_Idiomas" />
             <relation table="Habla_PERSONAS_IDIOMAS" row="ID_Idioma" />
         </row>
         <row name="Nombre_Idioma" null="0" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Idioma</part>
         </key>
     </table>
-    <table x="979" y="750" name="PREMIO">
+    <table x="928" y="742" name="PREMIOS">
         <row name="ID_Premio" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
             <relation table="Gano_PELICULAS_PREMIOS" row="ID_Premio" />
             <relation table="Gano_PERSONA_PREMIO" row="ID_Premio" />
         </row>
         <row name="Nombre_Premio" null="0" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <row name="Categoria" null="0" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Premio</part>
@@ -121,32 +109,27 @@
     </table>
     <table x="838" y="898" name="PERSONAS">
         <row name="ID_Persona" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
             <relation table="Habla_PERSONAS_IDIOMAS" row="ID_Persona" />
             <relation table="Gano_PERSONA_PREMIO" row="ID_Persona" />
             <relation table="Participacion_PELICULAS_PERSONAS" row="ID_Persona" />
         </row>
         <row name="Nombre_Persona" null="0" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <row name="Edad" null="0" autoincrement="0">
             <datatype>INTEGER(200)</datatype>
-            <default>NULL</default>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Persona</part>
         </key>
     </table>
-    <table x="342" y="459" name="PELICULAS_GENEROS">
-        <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+    <table x="387" y="367" name="PELICULAS_GENEROS">
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Genero" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Genero" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Pelicula</part>
@@ -154,13 +137,11 @@
         </key>
     </table>
     <table x="228" y="613" name="Lengua_PELICULAS_IDIOMAS">
-        <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Idioma" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Idioma" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Pelicula</part>
@@ -168,13 +149,11 @@
         </key>
     </table>
     <table x="213" y="724" name="Subtitulos_PELICULAS_IDIOMAS">
-        <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Idioma" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Idioma" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Pelicula</part>
@@ -182,21 +161,17 @@
         </key>
     </table>
     <table x="232" y="829" name="Titulos_PELICULAS_IDIOMAS">
-        <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Idiomas" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Idiomas" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <row name="Nombre_Original" null="0" autoincrement="0">
             <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
         </row>
         <row name="Nombre_en_este_idioma" null="0" autoincrement="0">
             <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Pelicula</part>
@@ -204,13 +179,11 @@
         </key>
     </table>
     <table x="1140" y="674" name="Gano_PELICULAS_PREMIOS">
-        <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Premio" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Premio" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Pelicula</part>
@@ -218,13 +191,11 @@
         </key>
     </table>
     <table x="646" y="1060" name="Habla_PERSONAS_IDIOMAS">
-        <row name="ID_Persona" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Persona" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Idioma" null="1" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>NULL</default>
+        <row name="ID_Idioma" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Persona</part>
@@ -232,13 +203,11 @@
         </key>
     </table>
     <table x="1124" y="839" name="Gano_PERSONA_PREMIO">
-        <row name="ID_Premio" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Premio" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Persona" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Persona" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Persona</part>
@@ -246,17 +215,14 @@
         </key>
     </table>
     <table x="856" y="479" name="Participacion_PELICULAS_PERSONAS">
-        <row name="ID_Persona" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Persona" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Pelicula" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
-        <row name="ID_Rol" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+        <row name="ID_Rol" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Persona</part>
@@ -266,13 +232,11 @@
     </table>
     <table x="1214" y="479" name="ROLES">
         <row name="ID_Rol" null="0" autoincrement="1">
-            <datatype>VARCHAR</datatype>
-            <default>'NULL'</default>
+            <datatype>INTEGER</datatype>
             <relation table="Participacion_PELICULAS_PERSONAS" row="ID_Rol" />
         </row>
         <row name="Nombre_Rol" null="0" autoincrement="0">
-            <datatype>CHAR(100)</datatype>
-            <default>'NULL'</default>
+            <datatype>VARCHAR(100)</datatype>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Rol</part>
