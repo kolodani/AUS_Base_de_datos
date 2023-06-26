@@ -59,12 +59,11 @@
             <relation table="Titulos_PELICULAS_IDIOMAS" row="ID_Pelicula" />
             <relation table="Gano_PELICULAS_PREMIOS" row="ID_Pelicula" />
             <relation table="Participacion_PELICULAS_PERSONAS" row="ID_Pelicula" />
+            <relation table="Peliculas_Saga" row="ID_Pelicula" />
         </row>
         <row name="Nombre_Pelicula" null="1" autoincrement="0">
             <datatype>VARCHAR(100)</datatype>
-        </row>
-        <row name="Orden_Saga" null="0" autoincrement="0">
-            <datatype>INTEGER</datatype>
+            <default>NULL</default>
         </row>
         <row name="Duracion" null="0" autoincrement="0">
             <datatype>INTEGER</datatype>
@@ -214,7 +213,7 @@
             <part>ID_Premio</part>
         </key>
     </table>
-    <table x="856" y="479" name="Participacion_PELICULAS_PERSONAS">
+    <table x="856" y="463" name="Participacion_PELICULAS_PERSONAS">
         <row name="ID_Persona" null="0" autoincrement="0">
             <datatype>INTEGER</datatype>
         </row>
@@ -240,6 +239,33 @@
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Rol</part>
+        </key>
+    </table>
+    <table x="875" y="352" name="SAGAS">
+        <row name="ID_Saga" null="0" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <relation table="Peliculas_Saga" row="ID_Saga" />
+        </row>
+        <row name="Nombre_Saga" null="1" autoincrement="0">
+            <datatype>VARCHAR</datatype>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>ID_Saga</part>
+        </key>
+    </table>
+    <table x="658" y="369" name="Peliculas_Saga">
+        <row name="ID_Saga" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+        </row>
+        <row name="ID_Pelicula" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
+        </row>
+        <row name="Orden_En_Saga" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>ID_Saga</part>
+            <part>ID_Pelicula</part>
         </key>
     </table>
 </sql>

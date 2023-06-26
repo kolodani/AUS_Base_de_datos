@@ -3,7 +3,7 @@
 -- ---
 
 -- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
--- SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ---
 -- Table 'GENEROS'
@@ -196,6 +196,33 @@ CREATE TABLE `ROLES` (
 );
 
 -- ---
+-- Table 'SAGAS'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `SAGAS`;
+		
+CREATE TABLE `SAGAS` (
+  `ID_Saga` INTEGER NOT NULL AUTO_INCREMENT,
+  `Nombre_Saga` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`ID_Saga`)
+);
+
+-- ---
+-- Table 'Peliculas_Saga'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `Peliculas_Saga`;
+		
+CREATE TABLE `Peliculas_Saga` (
+  `ID_Saga` INTEGER NULL,
+  `ID_Pelicula` INTEGER NOT NULL,
+  `Orden_En_Saga` INTEGER NOT NULL,
+  PRIMARY KEY (`ID_Saga`, `ID_Pelicula`)
+);
+
+-- ---
 -- Foreign Keys 
 -- ---
 ALTER TABLE PELICULAS_GENEROS ADD CONSTRAINT da_lo_mismo FOREIGN KEY (ID_Genero) REFERENCES GENEROS(ID_Genero);
@@ -215,6 +242,7 @@ ALTER TABLE Gano_PERSONA_PREMIO ADD CONSTRAINT da_lo_mismo14 FOREIGN KEY (ID_Per
 ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo15 FOREIGN KEY (ID_Persona) REFERENCES PERSONAS(ID_Persona);
 ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo16 FOREIGN KEY (ID_Pelicula) REFERENCES PELICULAS(ID_Pelicula);
 ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo17 FOREIGN KEY (ID_Rol) REFERENCES ROLES(ID_Rol);
+ALTER TABLE Peliculas_Saga ADD CONSTRAINT da_lo_mismo18 FOREIGN KEY (ID_Saga) REFERENCES SAGAS(ID_Saga);
 
 -- ---
 -- Table Properties
@@ -267,3 +295,63 @@ ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo17 FOREIG
 -- ('','','');
 -- INSERT INTO `ROLES` (`ID_Rol`,`Nombre_Rol`) VALUES
 -- ('','');
+
+
+
+-- ---
+-- agregar datos
+-- ---
+
+-- Tabla Generos de peliculas
+INSERT INTO `GENEROS` (`ID_Genero`,`Nombre_Genero`) VALUES
+('1','Accion'),
+('2','Aventura'),
+('3','Comedia'),
+('4','Drama'),
+('5','Terror'),
+('6','Musical'),
+('7','Ciencia Ficcion'),
+('8','Fantasia'),
+('9','Suspenso'),
+('10','Romance'),
+('11','Animacion'),
+('12','Documental'),
+('13','Crimen'),
+('14','Guerra'),
+('15','Misterio'),
+('16','Biografia'),
+('17','Familia'),
+('18','Historia'),
+('19','Western'),
+('20','Deporte'),
+('21','Musical'),
+('22','Thriller'),
+('23','Infantil');
+
+-- Tabla Idiomas
+INSERT INTO `IDIOMAS` (`ID_Idioma`,`Nombre_Idioma`) VALUES
+('1', 'Español'),
+('2', 'Ingles'),
+('3', 'Italiano'),
+('4', 'Aleman'),
+('5', 'Franses');
+
+-- Tabla Premios
+INSERT INTO `PREMIOS` (`ID_Premio`, `Nombre_Premio`, `Categoria`) VALUES
+('1', 'Oscar', 'Mejor Pelicula'),
+('2', 'Oscar', 'Mejor Director'),
+('3', 'Oscar', 'Mejor Actor Protagonico'),
+('4', 'Oscar', 'Mejor Actor De Reparto'),
+('5', 'Oscar', 'Mejor Actriz Protagonico'),
+('6', 'Oscar', 'Mejor Actriz De Reparto');
+
+-- Tabla Roles
+INSERT INTO `ROLES` (`ID_Rol`,`Nombre_Rol`) VALUES
+('1', 'Director'),
+('2', 'Actor/Actriz Protagonico'),
+('3', 'Actor/Actriz De Reparto'),
+('4', 'Voz');
+
+-- -- Tabla Personas
+-- INSERT INTO `PELICULAS` (`ID_Pelicula`, `Nombre_Pelicula`, `Orden_Saga`, `Duracion`, `Año_de_estreno`) VALUES
+-- ('597', 'Titanic', '1', '1994', )
