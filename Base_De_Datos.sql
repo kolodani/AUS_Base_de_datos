@@ -28,7 +28,6 @@ DROP TABLE IF EXISTS `PELICULAS`;
 CREATE TABLE `PELICULAS` (
   `ID_Pelicula` INTEGER NOT NULL AUTO_INCREMENT,
   `Nombre_Pelicula` VARCHAR(100) NULL,
-  `Orden_Saga` INTEGER NOT NULL,
   `Duracion` INTEGER NOT NULL,
   `Año_de_estreno` YEAR NOT NULL,
   PRIMARY KEY (`ID_Pelicula`)
@@ -334,7 +333,8 @@ INSERT INTO `IDIOMAS` (`ID_Idioma`,`Nombre_Idioma`) VALUES
 ('2', 'Ingles'),
 ('3', 'Italiano'),
 ('4', 'Aleman'),
-('5', 'Franses');
+('5', 'Franses'),
+('6', 'Japones');
 
 -- Tabla Premios
 INSERT INTO `PREMIOS` (`ID_Premio`, `Nombre_Premio`, `Categoria`) VALUES
@@ -365,3 +365,181 @@ INSERT INTO `PELICULAS` (`ID_Pelicula`, `Nombre_Pelicula`, `Duracion`, `Año_de_
 ('89', 'Indiana Jones and the Last Crusade', 127, '1989'),
 ('8844', 'Jumanji', 101, '1995');
 
+-- Tabla Personas
+INSERT INTO `PERSONAS` (`ID_Persona`, `Nombre_Persona`, `Edad`) VALUES
+('1', 'James Cameron', '68'),
+('2', 'Kate Winslet', '47'),
+('3', 'Leonardo DiCaprio', '48'),
+('4', 'Frances Fisher', '71'),
+('5', 'Billy Zane', '57'),
+('6', 'George Lucas', '79'),
+('7', 'Mark Hamill', '71'),
+('8', 'Carrie Fisher', '60'),
+('9', 'Harrison Ford', '80'),
+('10', 'Alec Guinness', '86'),
+('11', 'Hayao Miyazaki', '82'),
+('12', 'Rumi Hiragi', '99'),
+('13', 'Miyu Irino', '99'),
+('14', 'Mari Natsuki', '99'),
+('15', 'Takashi Naito', '99'),
+('16', 'Pete Docter', '54'),
+('17', 'Amy Poehler', '51'),
+('18', 'Phyllis Smith', '71'),
+('19', 'Richard King', '66'),
+('20', 'Bill Hader', '45'),
+('21', 'Mel Gibson', '67'),
+('22', 'Catherine McCormack', '51'),
+('23', 'Sophie Marceau', '56'),
+('24', 'Patrick McGoohan', '80'),
+('25', 'Robert Zemeckis', '71'),
+('26', 'Michael J. Fox', '62'),
+('27', 'Christopher Lloyd', '84'),
+('28', 'Lea Thompson', '62'),
+('29', 'Crispin Glover', '59'),
+('30', 'Tom Hanks', '66'),
+('31', 'Robin Wright', '57'),
+('32', 'Gary Sinise', '68'),
+('33', 'Sally Field', '76'),
+('34', 'Bob Hoskins', '71'),
+('35', 'Joanna Cassaidy', '77'),
+('36', 'Charles Fleischer', '72'),
+('37', 'Steven Spielberg', '76'),
+('38', 'Sean Connery', '90'),
+('39', 'Alison Doody', '56'),
+('40', 'Julian Glover', '88'),
+('41', 'Joe Johnston', '73'),
+('42', 'Robin Williams', '63'),
+('43', 'Kristen Dunst', '41'),
+('44', 'Bradley Pierce', '40'),
+('45', 'Bonnie Hunt', '61');
+
+-- Tabla PELICULAS_GENEROS
+INSERT INTO `PELICULAS_GENEROS` (`ID_Pelicula`,`ID_Genero`) VALUES
+('597','4'),
+('597','10'),
+('597','18'),
+('11','1'),
+('11','7'),
+('11','8'),
+('129','1'),
+('129','11'),
+('129','18'),
+('59170','3'),
+('59170','6'),
+('59170','10'),
+('59170','17'),
+('197','1'),
+('197','4'),
+('197','18'),
+('105','1'),
+('105','7'),
+('105','8'),
+('13','1'),
+('13','4'),
+('13','10'),
+('856','1'),
+('856','3'),
+('856','7'),
+('856','8'),
+('89','1'),
+('89','7'),
+('89','8'),
+('89','18'),
+('8844','1'),
+('8844','3'),
+('8844','7'),
+('8844','8');
+
+-- Tabla Lengua_PELICULAS_IDIOMAS
+INSERT INTO `Lengua_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
+('597','1'),
+('11','1'),
+('129','6'),
+('59170','1'),
+('197','1'),
+('105','1'),
+('13','1'),
+('856','1'),
+('89','1'),
+('8844','1');
+
+-- Tabla Subtitulos_PELICULAS_IDIOMAS
+INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
+('597','1'),
+('11','1'),
+('129','1'),
+('59170','1'),
+('197','1'),
+('105','1'),
+('13','1'),
+('856','1'),
+('89','1'),
+('8844','1'),
+('597','2'),
+('11','2'),
+('129','2'),
+('59170','2'),
+('197','2'),
+('105','2'),
+('13','2'),
+('856','2'),
+('89','2'),
+('8844','2'),
+('597','3'),
+('11','3'),
+('129','3'),
+('59170','3'),
+('197','3'),
+('105','3'),
+('13','3'),
+('856','3'),
+('89','3'),
+('8844','3'),
+('597','4'),
+('11','4'),
+('129','4'),
+('59170','4'),
+('197','4'),
+('105','4'),
+('13','4'),
+('856','4'),
+('89','4'),
+('8844','4'),
+('597','5'),
+('11','5'),
+('129','5'),
+('59170','5'),
+('197','5'),
+('105','5'),
+('13','5'),
+('856','5'),
+('89','5'),
+('8844','5'),
+('597','6'),
+('11','6'),
+('129','6'),
+('59170','6'),
+('197','6'),
+('105','6'),
+('13','6'),
+('856','6'),
+('89','6'),
+('8844','6');
+
+-- Tabla Titulos_PELICULAS_IDIOMAS
+-- INSERT INTO `Titulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idiomas`,`Nombre_Original`,`Nombre_en_este_idioma`) VALUES
+-- ('','','','');
+
+
+
+
+
+
+-- INSERT INTO `Gano_PELICULAS_PREMIOS` (`ID_Pelicula`,`ID_Premio`) VALUES
+-- ('','');
+-- INSERT INTO `Habla_PERSONAS_IDIOMAS` (`ID_Persona`,`ID_Idioma`) VALUES
+-- ('','');
+-- INSERT INTO `Gano_PERSONA_PREMIO` (`ID_Premio`,`ID_Persona`) VALUES
+-- ('','');
+-- INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_Rol`) VALUES
+-- ('','','');
