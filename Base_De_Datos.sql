@@ -352,6 +352,16 @@ INSERT INTO `ROLES` (`ID_Rol`,`Nombre_Rol`) VALUES
 ('3', 'Actor/Actriz De Reparto'),
 ('4', 'Voz');
 
--- -- Tabla Personas
--- INSERT INTO `PELICULAS` (`ID_Pelicula`, `Nombre_Pelicula`, `Orden_Saga`, `Duracion`, `Año_de_estreno`) VALUES
--- ('597', 'Titanic', '1', '1994', )
+-- Tabla Personas
+INSERT INTO `PELICULAS` (`ID_Pelicula`, `Nombre_Pelicula`, `Duracion`, `Año_de_estreno`) VALUES
+('597', 'Titanic', 194, '1997'),
+('11', 'Star Wars: Episode IV - A New Hope', 121, '1977'),
+('129', 'Spirited Away', 125, '2001'),
+('59170', 'Inside Out', 102, '2015'),
+('197', 'Braveheart', 177, '1995'),
+('105', 'Back to the Future', 111, '1985'),
+('13', 'Forrest Gump', 142, '1994'),
+('856', 'Who Framed Roger Rabbit', 103, '1988'),
+('89', 'Indiana Jones and the Last Crusade', 127, '1989'),
+('8844', 'Jumanji', 101, '1995');
+
