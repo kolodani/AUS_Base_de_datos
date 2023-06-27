@@ -261,6 +261,8 @@ ALTER TABLE Peliculas_Saga ADD CONSTRAINT da_lo_mismo18 FOREIGN KEY (ID_Saga) RE
 -- ALTER TABLE `Gano_PERSONA_PREMIO` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `Participacion_PELICULAS_PERSONAS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `ROLES` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `SAGAS` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `Peliculas_Saga` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ---
 -- Test Data
@@ -294,8 +296,10 @@ ALTER TABLE Peliculas_Saga ADD CONSTRAINT da_lo_mismo18 FOREIGN KEY (ID_Saga) RE
 -- ('','','');
 -- INSERT INTO `ROLES` (`ID_Rol`,`Nombre_Rol`) VALUES
 -- ('','');
-
-
+-- INSERT INTO `SAGAS` (`ID_Saga`,`Nombre_Saga`) VALUES
+-- ('','');
+-- INSERT INTO `Peliculas_Saga` (`ID_Pelicula`,`ID_Saga`) VALUES
+-- ('','');
 
 -- ---
 -- agregar datos
@@ -352,7 +356,7 @@ INSERT INTO `ROLES` (`ID_Rol`,`Nombre_Rol`) VALUES
 ('3', 'Actor/Actriz De Reparto'),
 ('4', 'Voz');
 
--- Tabla Personas
+-- Tabla Peliculas
 INSERT INTO `PELICULAS` (`ID_Pelicula`, `Nombre_Pelicula`, `Duracion`, `Año_de_estreno`) VALUES
 ('597', 'Titanic', 194, '1997'),
 ('11', 'Star Wars: Episode IV - A New Hope', 121, '1977'),
@@ -412,6 +416,13 @@ INSERT INTO `PERSONAS` (`ID_Persona`, `Nombre_Persona`, `Edad`) VALUES
 ('43', 'Kristen Dunst', '41'),
 ('44', 'Bradley Pierce', '40'),
 ('45', 'Bonnie Hunt', '61');
+
+-- Tabla Sagas
+INSERT INTO `SAGAS` (`ID_Saga`,`Nombre_Saga`) VALUES
+('1','Star Wars'),
+('2', 'Back to the Future'),
+('3', 'Indiana Jones'),
+('4', 'Jumanji');
 
 -- Tabla PELICULAS_GENEROS
 INSERT INTO `PELICULAS_GENEROS` (`ID_Pelicula`,`ID_Genero`) VALUES
@@ -659,3 +670,10 @@ INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_R
 ('43', '8844', '2'),
 ('44', '8844', '3'),
 ('45', '8844', '3');
+
+-- Tabla Peliculas_Saga
+INSERT INTO `Peliculas_Saga` (`ID_Pelicula`,`ID_Saga`,`Orden_En_Saga`) VALUES
+('11', '1', '4'),
+('105', '2', '1'),
+('89', '3', '3'),
+('8844', '4', '1');
