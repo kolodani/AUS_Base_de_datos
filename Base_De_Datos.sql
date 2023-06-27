@@ -329,8 +329,8 @@ INSERT INTO `GENEROS` (`ID_Genero`,`Nombre_Genero`) VALUES
 
 -- Tabla Idiomas
 INSERT INTO `IDIOMAS` (`ID_Idioma`,`Nombre_Idioma`) VALUES
-('1', 'Español'),
-('2', 'Ingles'),
+('1', 'Ingles'),
+('2', 'Español'),
 ('3', 'Italiano'),
 ('4', 'Aleman'),
 ('5', 'Franses'),
@@ -527,19 +527,135 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('8844','6');
 
 -- Tabla Titulos_PELICULAS_IDIOMAS
--- INSERT INTO `Titulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idiomas`,`Nombre_Original`,`Nombre_en_este_idioma`) VALUES
--- ('','','','');
+INSERT INTO `Titulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idiomas`,`Nombre_Original`,`Nombre_en_este_idioma`) VALUES
+('597','2','Titanic','Titanic'),
+('11','2','Star Wars: Episode IV - A New Hope','La guerra de las galaxias: Episodio IV - Una nueva esperanza'),
+('129','2','Spirited Away','El viaje de Chihiro'),
+('59170','2','Inside Out','Intensa-Mente'),
+('197','2','Braveheart','Corazón valiente'),
+('105','2','Back to the Future','Volver al futuro'),
+('13','2','Forrest Gump','Forrest Gump'),
+('856','2','Who Framed Roger Rabbit?','¿Quién engañó a Roger Rabbit?'),
+('89','2','Indiana Jones and the Last Crusade','Indiana Jones y la última cruzada'),
+('8844','2','Jumanji','Jumanji');
 
+-- Tabla Gano_PELICULAS_PREMIOS
+INSERT INTO `Gano_PELICULAS_PREMIOS` (`ID_Pelicula`,`ID_Premio`) VALUES
+('597','1'),
+('197','1'),
+('13','1');
 
+-- Tabla Habla_PERSONAS_IDIOMAS
+INSERT INTO `Habla_PERSONAS_IDIOMAS` (`ID_Persona`,`ID_Idioma`) VALUES
+('1', '1'),
+('2', '1'),
+('3', '1'),
+('4', '1'),
+('5', '1'),
+('6', '1'),
+('7', '1'),
+('8', '1'),
+('9', '1'),
+('10', '1'),
+('11', '6'),
+('12', '6'),
+('13', '6'),
+('14', '6'),
+('15', '6'),
+('16', '1'),
+('17', '1'),
+('18', '1'),
+('19', '1'),
+('20', '1'),
+('21', '1'),
+('22', '1'),
+('23', '1'),
+('24', '1'),
+('25', '1'),
+('26', '1'),
+('27', '1'),
+('28', '1'),
+('29', '1'),
+('30', '1'),
+('31', '1'),
+('32', '1'),
+('33', '1'),
+('34', '1'),
+('35', '1'),
+('36', '1'),
+('37', '1'),
+('38', '1'),
+('39', '1'),
+('40', '1'),
+('41', '1'),
+('42', '1'),
+('43', '1'),
+('44', '1'),
+('45', '1');
 
+-- Tabla Gano_PERSONA_PREMIO
+INSERT INTO `Gano_PERSONA_PREMIO` (`ID_Premio`,`ID_Persona`) VALUES
+('1', '2'),
+('2', '5'),
+('3', '3'),
+('10', '3'),
+('21', '2'),
+('25', '2'),
+('30', '3'),
+('33', '5'),
+('37', '2'),
+('38', '4'),
+('42', '4');
 
-
-
--- INSERT INTO `Gano_PELICULAS_PREMIOS` (`ID_Pelicula`,`ID_Premio`) VALUES
--- ('','');
--- INSERT INTO `Habla_PERSONAS_IDIOMAS` (`ID_Persona`,`ID_Idioma`) VALUES
--- ('','');
--- INSERT INTO `Gano_PERSONA_PREMIO` (`ID_Premio`,`ID_Persona`) VALUES
--- ('','');
--- INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_Rol`) VALUES
--- ('','','');
+-- Tabla Participacion_PELICULAS_PERSONAS
+INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_Rol`) VALUES
+('1', '597', '1'),
+('2', '597', '2'),
+('3', '597', '2'),
+('4', '597', '3'),
+('5', '597', '3'),
+('6', '11', '1'),
+('7', '11', '2'),
+('8', '11', '2'),
+('9', '11', '3'),
+('10', '11', '3'),
+('11', '129', '1'),
+('12', '129', '4'),
+('13', '129', '4'),
+('14', '129', '4'),
+('15', '129', '4'),
+('16', '59170', '1'),
+('17', '59170', '4'),
+('18', '59170', '4'),
+('19', '59170', '4'),
+('20', '59170', '4'),
+('21', '197', '1'),
+('21', '197', '2'),
+('22', '197', '3'),
+('23', '197', '2'),
+('24', '197', '3'),
+('25', '105', '1'),
+('26', '105', '2'),
+('27', '105', '3'),
+('28', '105', '3'),
+('29', '105', '3'),
+('25', '13', '1' ),
+('30', '13', '2'),
+('31', '13', '3'),
+('32', '13', '3'),
+('33', '13', '3'),
+('25', '856', '1'),
+('34', '856', '2'),
+('27', '856', '3'),
+('35', '856', '3'),
+('36', '856', '4'),
+('37', '89', '1'),
+('9', '89', '2'),
+('38', '89', '3'),
+('39', '89', '3'),
+('40', '89', '3'),
+('41', '8844', '1'),
+('42', '8844', '2'),
+('43', '8844', '2'),
+('44', '8844', '3'),
+('45', '8844', '3');
