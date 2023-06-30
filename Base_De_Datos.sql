@@ -47,7 +47,7 @@ CREATE TABLE `IDIOMAS` (
 );
 
 -- ---
--- Table 'PREMIO'
+-- Table 'PREMIOS'
 -- 
 -- ---
 
@@ -347,7 +347,8 @@ INSERT INTO `PREMIOS` (`ID_Premio`, `Nombre_Premio`, `Categoria`) VALUES
 ('3', 'Oscar', 'Mejor Actor Protagonico'),
 ('4', 'Oscar', 'Mejor Actor De Reparto'),
 ('5', 'Oscar', 'Mejor Actriz Protagonico'),
-('6', 'Oscar', 'Mejor Actriz De Reparto');
+('6', 'Oscar', 'Mejor Actriz De Reparto'),
+('7', 'Oscar', 'Mejor Pelicula de Animacion');
 
 -- Tabla Roles
 INSERT INTO `ROLES` (`ID_Rol`,`Nombre_Rol`) VALUES
@@ -582,7 +583,9 @@ INSERT INTO `Titulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idiomas`,`Nombre_Orig
 INSERT INTO `Gano_PELICULAS_PREMIOS` (`ID_Pelicula`,`ID_Premio`) VALUES
 ('597','1'),
 ('197','1'),
-('13','1');
+('13','1'),
+('129', '7'),
+('59170', '7');
 
 -- Tabla Habla_PERSONAS_IDIOMAS
 INSERT INTO `Habla_PERSONAS_IDIOMAS` (`ID_Persona`,`ID_Idioma`) VALUES
@@ -783,3 +786,12 @@ HAVING COUNT(Participacion_PELICULAS_PERSONAS.ID_Pelicula) > 1;
 -- 6. La duración promedio (en minutos) de las películas estrenadas antes del año 2000.
 SELECT AVG(PELICULAS.Duracion) FROM PELICULAS
 WHERE PELICULAS.Año_de_estreno < 2000;
+
+-- -- 7. El nombre de las películas que hayan ganado un oscar y su idioma original no sea el inglés.
+SELECT PELICULAS.Nombre_Pelicula FROM PELICULAS, PREMIOS, IDIOMAS, Gano_PELICULAS_PREMIOS, Lengua_PELICULAS_IDIOMAS
+WHERE PELICULAS.ID_Pelicula = Gano_PELICULAS_PREMIOS.ID_Pelicula
+AND PREMIOS.ID_Premio = Gano_PELICULAS_PREMIOS.ID_Premio
+AND IDIOMAS.ID_Idioma = Lengua_PELICULAS_IDIOMAS.ID_Idioma
+AND PELICULAS.ID_Pelicula = Lengua_PELICULAS_IDIOMAS.ID_Pelicula
+AND (PREMIOS.ID_Premio = 1 OR PREMIOS.ID_Premio = 7)
+AND IDIOMAS.ID_Idioma <> 1;
