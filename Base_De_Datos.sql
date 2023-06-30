@@ -362,6 +362,8 @@ INSERT INTO `PELICULAS` (`ID_Pelicula`, `Nombre_Pelicula`, `Duracion`, `Año_de_
 ('11', 'Star Wars: Episode IV - A New Hope', 121, '1977'),
 ('129', 'Spirited Away', 125, '2001'),
 ('59170', 'Inside Out', 102, '2015'),
+('165', 'Back to the Future Part II', 108, '1989'),
+('196', 'Back to the Future Part III', 118, '1990'),
 ('197', 'Braveheart', 177, '1995'),
 ('105', 'Back to the Future', 111, '1985'),
 ('13', 'Forrest Gump', 142, '1994'),
@@ -415,7 +417,9 @@ INSERT INTO `PERSONAS` (`ID_Persona`, `Nombre_Persona`, `Edad`) VALUES
 ('42', 'Robin Williams', '63'),
 ('43', 'Kristen Dunst', '41'),
 ('44', 'Bradley Pierce', '40'),
-('45', 'Bonnie Hunt', '61');
+('45', 'Bonnie Hunt', '61'),
+('46', 'Thomas F. Wilson', '64'),
+('47', 'Mary Steenburgen', '70');
 
 -- Tabla Sagas
 INSERT INTO `SAGAS` (`ID_Saga`,`Nombre_Saga`) VALUES
@@ -459,7 +463,15 @@ INSERT INTO `PELICULAS_GENEROS` (`ID_Pelicula`,`ID_Genero`) VALUES
 ('8844','1'),
 ('8844','3'),
 ('8844','7'),
-('8844','8');
+('8844','8'),
+('165','1'),
+('165','7'),
+('165','8'),
+('165','18'),
+('196','1'),
+('196','7'),
+('196','8'),
+('196','18');
 
 -- Tabla Lengua_PELICULAS_IDIOMAS
 INSERT INTO `Lengua_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
@@ -472,7 +484,9 @@ INSERT INTO `Lengua_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('13','1'),
 ('856','1'),
 ('89','1'),
-('8844','1');
+('8844','1'),
+('165','1'),
+('196','1');
 
 -- Tabla Subtitulos_PELICULAS_IDIOMAS
 INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
@@ -486,6 +500,8 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('856','1'),
 ('89','1'),
 ('8844','1'),
+('165','1'),
+('196','1'),
 ('597','2'),
 ('11','2'),
 ('129','2'),
@@ -496,6 +512,8 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('856','2'),
 ('89','2'),
 ('8844','2'),
+('165','2'),
+('196','2'),
 ('597','3'),
 ('11','3'),
 ('129','3'),
@@ -506,6 +524,8 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('856','3'),
 ('89','3'),
 ('8844','3'),
+('165','3'),
+('196','3'),
 ('597','4'),
 ('11','4'),
 ('129','4'),
@@ -516,6 +536,8 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('856','4'),
 ('89','4'),
 ('8844','4'),
+('165','4'),
+('196','4'),
 ('597','5'),
 ('11','5'),
 ('129','5'),
@@ -526,6 +548,8 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('856','5'),
 ('89','5'),
 ('8844','5'),
+('165','5'),
+('196','5'),
 ('597','6'),
 ('11','6'),
 ('129','6'),
@@ -535,7 +559,9 @@ INSERT INTO `Subtitulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idioma`) VALUES
 ('13','6'),
 ('856','6'),
 ('89','6'),
-('8844','6');
+('8844','6'),
+('165','6'),
+('196','6');
 
 -- Tabla Titulos_PELICULAS_IDIOMAS
 INSERT INTO `Titulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idiomas`,`Nombre_Original`,`Nombre_en_este_idioma`) VALUES
@@ -548,7 +574,9 @@ INSERT INTO `Titulos_PELICULAS_IDIOMAS` (`ID_Pelicula`,`ID_Idiomas`,`Nombre_Orig
 ('13','2','Forrest Gump','Forrest Gump'),
 ('856','2','Who Framed Roger Rabbit?','¿Quién engañó a Roger Rabbit?'),
 ('89','2','Indiana Jones and the Last Crusade','Indiana Jones y la última cruzada'),
-('8844','2','Jumanji','Jumanji');
+('8844','2','Jumanji','Jumanji'),
+('165','2', 'Back to the Future Part II', 'Volver al futuro 2'),
+('196','2', 'Back to the Future Part III', 'Volver al futuro 3');
 
 -- Tabla Gano_PELICULAS_PREMIOS
 INSERT INTO `Gano_PELICULAS_PREMIOS` (`ID_Pelicula`,`ID_Premio`) VALUES
@@ -602,7 +630,9 @@ INSERT INTO `Habla_PERSONAS_IDIOMAS` (`ID_Persona`,`ID_Idioma`) VALUES
 ('42', '1'),
 ('43', '1'),
 ('44', '1'),
-('45', '1');
+('45', '1'),
+('46', '1'),
+('47', '1');
 
 -- Tabla Gano_PERSONA_PREMIO
 INSERT INTO `Gano_PERSONA_PREMIO` (`ID_Premio`,`ID_Persona`) VALUES
@@ -616,7 +646,8 @@ INSERT INTO `Gano_PERSONA_PREMIO` (`ID_Premio`,`ID_Persona`) VALUES
 ('33', '5'),
 ('37', '2'),
 ('38', '4'),
-('42', '4');
+('42', '4'),
+('47', '6');
 
 -- Tabla Participacion_PELICULAS_PERSONAS
 INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_Rol`) VALUES
@@ -650,6 +681,7 @@ INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_R
 ('27', '105', '3'),
 ('28', '105', '3'),
 ('29', '105', '3'),
+('46', '105', '3'),
 ('25', '13', '1' ),
 ('30', '13', '2'),
 ('31', '13', '3'),
@@ -669,11 +701,42 @@ INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_R
 ('42', '8844', '2'),
 ('43', '8844', '2'),
 ('44', '8844', '3'),
-('45', '8844', '3');
+('45', '8844', '3'),
+('25', '165', '1'),
+('26', '165', '2'),
+('27', '165', '3'),
+('28', '165', '3'),
+('29', '165', '3'),
+('46', '165', '3'),
+('25', '196', '1'),
+('26', '196', '2'),
+('27', '196', '3'),
+('28', '196', '3'),
+('29', '196', '3'),
+('46', '196', '3'),
+('47', '196', '3');
 
 -- Tabla Peliculas_Saga
 INSERT INTO `Peliculas_Saga` (`ID_Pelicula`,`ID_Saga`,`Orden_En_Saga`) VALUES
 ('11', '1', '4'),
 ('105', '2', '1'),
+('165', '2', '2'),
+('196', '2', '3'),
 ('89', '3', '3'),
 ('8844', '4', '1');
+
+-- ---
+-- consultas a la base de datos
+-- ---
+
+-- 1. Los nombres de las películas junto con su director, que tenga más de una parte.
+-- Ordenadas por orden en que deben ser vistas. Ejemplo volver al futuro tiene 3 partes.
+
+SELECT PELICULAS.Nombre_Pelicula, PERSONAS.Nombre_Persona FROM PELICULAS, PERSONAS, SAGAS, ROLES, Participacion_PELICULAS_PERSONAS, Peliculas_Saga
+WHERE PELICULAS.ID_Pelicula = Participacion_PELICULAS_PERSONAS.ID_Pelicula
+AND PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND SAGAS.ID_Saga = Peliculas_Saga.ID_Saga
+AND PELICULAS.ID_Pelicula = Peliculas_Saga.ID_Pelicula
+AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
+AND ROLES.ID_Rol = 1;
+
