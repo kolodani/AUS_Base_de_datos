@@ -773,3 +773,9 @@ AND PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
 AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
 AND (ROLES.ID_Rol = 2 OR ROLES.ID_Rol = 3));
 
+-- 5. Los nombres de los actores que actúan en más de una película de la base de datos y la cantidad.
+SELECT PERSONAS.Nombre_Persona, COUNT(Participacion_PELICULAS_PERSONAS.ID_Pelicula) FROM PERSONAS, Participacion_PELICULAS_PERSONAS
+WHERE PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND (Participacion_PELICULAS_PERSONAS.ID_Rol <> 1 AND Participacion_PELICULAS_PERSONAS.ID_Rol <> 4)
+GROUP BY PERSONAS.Nombre_Persona
+HAVING COUNT(Participacion_PELICULAS_PERSONAS.ID_Pelicula) > 1;
