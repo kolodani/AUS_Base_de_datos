@@ -779,3 +779,7 @@ WHERE PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
 AND (Participacion_PELICULAS_PERSONAS.ID_Rol <> 1 AND Participacion_PELICULAS_PERSONAS.ID_Rol <> 4)
 GROUP BY PERSONAS.Nombre_Persona
 HAVING COUNT(Participacion_PELICULAS_PERSONAS.ID_Pelicula) > 1;
+
+-- 6. La duración promedio (en minutos) de las películas estrenadas antes del año 2000.
+SELECT AVG(PELICULAS.Duracion) FROM PELICULAS
+WHERE PELICULAS.Año_de_estreno < 2000;
