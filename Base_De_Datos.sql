@@ -740,3 +740,14 @@ AND PELICULAS.ID_Pelicula = Peliculas_Saga.ID_Pelicula
 AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
 AND ROLES.ID_Rol = 1;
 
+-- 2. Los nombres de las películas en donde su director también sea el actor principal.
+SELECT DISTINCT PELICULAS.Nombre_Pelicula FROM PELICULAS, PERSONAS, ROLES, Participacion_PELICULAS_PERSONAS AS R1, Participacion_PELICULAS_PERSONAS AS R2
+WHERE R1.ID_Rol = 1
+AND R2.ID_Rol = 2
+AND (R1.ID_Pelicula = R2.ID_Pelicula
+AND R1.ID_Persona = R2.ID_Persona)
+AND (R1.ID_Pelicula = PELICULAS.ID_Pelicula
+AND R2.ID_Pelicula = PELICULAS.ID_Pelicula)
+AND (R1.ID_Persona = PERSONAS.ID_Persona
+AND R2.ID_Persona = PERSONAS.ID_Persona);
+
