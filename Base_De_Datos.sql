@@ -751,3 +751,12 @@ AND R2.ID_Pelicula = PELICULAS.ID_Pelicula)
 AND (R1.ID_Persona = PERSONAS.ID_Persona
 AND R2.ID_Persona = PERSONAS.ID_Persona);
 
+-- 3. Los nombres de todas las películas, junto con la cantidad de actores que actúan en
+-- cada una, ordenadas por cantidad de actores en forma descendiente.
+SELECT PELICULAS.Nombre_Pelicula, COUNT(PERSONAS.Nombre_Persona) FROM PELICULAS, PERSONAS, Participacion_PELICULAS_PERSONAS, ROLES
+WHERE PELICULAS.ID_Pelicula = Participacion_PELICULAS_PERSONAS.ID_Pelicula
+AND PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
+AND ROLES.ID_Rol <> 1
+GROUP BY PELICULAS.Nombre_Pelicula
+ORDER BY COUNT(PERSONAS.Nombre_Persona) DESC;
