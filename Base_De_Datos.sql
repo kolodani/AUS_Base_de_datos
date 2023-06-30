@@ -813,3 +813,9 @@ WHERE PELICULAS.ID_Pelicula = Titulos_PELICULAS_IDIOMAS.ID_Pelicula
 AND IDIOMAS.ID_Idioma = Titulos_PELICULAS_IDIOMAS.ID_Idiomas
 AND IDIOMAS.ID_Idioma = 2
 AND Titulos_PELICULAS_IDIOMAS.Nombre_Original = Titulos_PELICULAS_IDIOMAS.Nombre_en_este_idioma;
+
+-- 10. La cantidad de películas agrupadas por género. Animación, Aventura, Terror, etc.
+SELECT GENEROS.Nombre_Genero, COUNT(PELICULAS.ID_Pelicula) FROM GENEROS, PELICULAS, PELICULAS_GENEROS
+WHERE GENEROS.ID_Genero = PELICULAS_GENEROS.ID_Genero
+AND PELICULAS.ID_Pelicula = PELICULAS_GENEROS.ID_Pelicula
+GROUP BY GENEROS.Nombre_Genero;
