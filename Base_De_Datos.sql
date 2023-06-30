@@ -795,3 +795,13 @@ AND IDIOMAS.ID_Idioma = Lengua_PELICULAS_IDIOMAS.ID_Idioma
 AND PELICULAS.ID_Pelicula = Lengua_PELICULAS_IDIOMAS.ID_Pelicula
 AND (PREMIOS.ID_Premio = 1 OR PREMIOS.ID_Premio = 7)
 AND IDIOMAS.ID_Idioma <> 1;
+
+-- 8. El nombre alguna película (Que no sea Star Wars) en donde haya participado algún
+-- actor de la película Star Wars (11)
+SELECT PELICULAS.Nombre_Pelicula FROM PELICULAS, PERSONAS, Participacion_PELICULAS_PERSONAS
+WHERE PELICULAS.ID_Pelicula = Participacion_PELICULAS_PERSONAS.ID_Pelicula
+AND PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND PERSONAS.ID_Persona IN (SELECT PERSONAS.ID_Persona FROM PERSONAS, Participacion_PELICULAS_PERSONAS
+WHERE PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND Participacion_PELICULAS_PERSONAS.ID_Pelicula = 11)
+AND PELICULAS.ID_Pelicula <> 11;
