@@ -805,3 +805,11 @@ AND PERSONAS.ID_Persona IN (SELECT PERSONAS.ID_Persona FROM PERSONAS, Participac
 WHERE PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
 AND Participacion_PELICULAS_PERSONAS.ID_Pelicula = 11)
 AND PELICULAS.ID_Pelicula <> 11;
+
+-- 9. El listado de películas con su tiempo de duración donde su nombre en castellano
+-- sea igual a su nombre original en el idioma en que fue creada.
+SELECT PELICULAS.Nombre_Pelicula, PELICULAS.Duracion FROM PELICULAS, IDIOMAS, Titulos_PELICULAS_IDIOMAS
+WHERE PELICULAS.ID_Pelicula = Titulos_PELICULAS_IDIOMAS.ID_Pelicula
+AND IDIOMAS.ID_Idioma = Titulos_PELICULAS_IDIOMAS.ID_Idiomas
+AND IDIOMAS.ID_Idioma = 2
+AND Titulos_PELICULAS_IDIOMAS.Nombre_Original = Titulos_PELICULAS_IDIOMAS.Nombre_en_este_idioma;
