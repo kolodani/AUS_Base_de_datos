@@ -760,3 +760,16 @@ AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
 AND ROLES.ID_Rol <> 1
 GROUP BY PELICULAS.Nombre_Pelicula
 ORDER BY COUNT(PERSONAS.Nombre_Persona) DESC;
+
+-- 4. Los nombres de las películas que no tiene actor principal, actor de reparto pero si voz
+SELECT DISTINCT PELICULAS.Nombre_Pelicula FROM PELICULAS, PERSONAS, ROLES, Participacion_PELICULAS_PERSONAS
+WHERE PELICULAS.ID_Pelicula = Participacion_PELICULAS_PERSONAS.ID_Pelicula
+AND PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
+AND ROLES.ID_Rol = 4
+AND PELICULAS.ID_Pelicula NOT IN (SELECT PELICULAS.ID_Pelicula FROM PELICULAS, PERSONAS, ROLES, Participacion_PELICULAS_PERSONAS
+WHERE PELICULAS.ID_Pelicula = Participacion_PELICULAS_PERSONAS.ID_Pelicula
+AND PERSONAS.ID_Persona = Participacion_PELICULAS_PERSONAS.ID_Persona
+AND ROLES.ID_Rol = Participacion_PELICULAS_PERSONAS.ID_Rol
+AND (ROLES.ID_Rol = 2 OR ROLES.ID_Rol = 3));
+
