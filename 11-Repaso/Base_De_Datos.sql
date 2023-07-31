@@ -178,7 +178,8 @@ CREATE TABLE `Participacion_PELICULAS_PERSONAS` (
   `ID_Persona` INTEGER NOT NULL,
   `ID_Pelicula` INTEGER NOT NULL,
   `ID_Rol` INTEGER NOT NULL,
-  PRIMARY KEY (`ID_Persona`, `ID_Pelicula`, `ID_Rol`)
+  `ID_Papel` INTEGER NOT NULL,
+  PRIMARY KEY (`ID_Persona`, `ID_Pelicula`, `ID_Rol`, `ID_Papel`)
 );
 
 -- ---
@@ -215,15 +216,29 @@ CREATE TABLE `SAGAS` (
 DROP TABLE IF EXISTS `Peliculas_Saga`;
 		
 CREATE TABLE `Peliculas_Saga` (
-  `ID_Saga` INTEGER NULL,
+  `ID_Saga` INTEGER NULL DEFAULT NULL,
   `ID_Pelicula` INTEGER NOT NULL,
   `Orden_En_Saga` INTEGER NOT NULL,
   PRIMARY KEY (`ID_Saga`, `ID_Pelicula`)
 );
 
 -- ---
+-- Table 'PAPELES'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `PAPELES`;
+		
+CREATE TABLE `PAPELES` (
+  `ID_Papel` INTEGER NOT NULL AUTO_INCREMENT,
+  `Nombre_Papel` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`ID_Papel`)
+);
+
+-- ---
 -- Foreign Keys 
 -- ---
+
 ALTER TABLE PELICULAS_GENEROS ADD CONSTRAINT da_lo_mismo FOREIGN KEY (ID_Genero) REFERENCES GENEROS(ID_Genero);
 ALTER TABLE PELICULAS_GENEROS ADD CONSTRAINT da_lo_mismo2 FOREIGN KEY (ID_Pelicula) REFERENCES PELICULAS(ID_Pelicula);
 ALTER TABLE Lengua_PELICULAS_IDIOMAS ADD CONSTRAINT da_lo_mismo3 FOREIGN KEY (ID_Pelicula) REFERENCES PELICULAS(ID_Pelicula);
@@ -242,6 +257,8 @@ ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo15 FOREIG
 ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo16 FOREIGN KEY (ID_Pelicula) REFERENCES PELICULAS(ID_Pelicula);
 ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo17 FOREIGN KEY (ID_Rol) REFERENCES ROLES(ID_Rol);
 ALTER TABLE Peliculas_Saga ADD CONSTRAINT da_lo_mismo18 FOREIGN KEY (ID_Saga) REFERENCES SAGAS(ID_Saga);
+ALTER TABLE Peliculas_Saga ADD CONSTRAINT da_lo_mismo19 FOREIGN KEY (ID_Pelicula) REFERENCES PELICULAS(ID_Pelicula);
+ALTER TABLE Participacion_PELICULAS_PERSONAS ADD CONSTRAINT da_lo_mismo20 FOREIGN KEY (ID_Papel) REFERENCES PAPELES(ID_Papel);
 
 -- ---
 -- Table Properties
@@ -428,6 +445,52 @@ INSERT INTO `SAGAS` (`ID_Saga`,`Nombre_Saga`) VALUES
 ('2', 'Back to the Future'),
 ('3', 'Indiana Jones'),
 ('4', 'Jumanji');
+
+-- Tabla Papeles
+INSERT INTO `PAPELES` (`ID_Papel`, `Nombre_Papel`) VALUES
+('0', 'N/A'),
+('1', 'Rose DeWitt Bukater'),
+('2', 'Jack Dawson'),
+('3', 'Ruth DeWitt Bukater'),
+('4', 'Caledon Nathan Hockley'),
+('5', 'Luke Skywalker'),
+('6', 'Leia Organa'),
+('7', 'Han Solo'),
+('8', 'Ben Obi-Wan Kenobi'),
+('9', 'Chihiro'),
+('10', 'Haku'),
+('11', 'Yubaba'),
+('12', 'Chijiro Padre'),
+('13', 'Joy'),
+('14', 'Sadness'),
+('15', 'Bing Bong'),
+('16', 'Fear'),
+('17', 'William Wallace'),
+('18', 'Murron MacClannough'),
+('19', 'Princess Isabelle'),
+('20', 'King Edward'),
+('21', 'Marty McFly'),
+('22', 'Dr. Emmett Brown'),
+('23', 'Lorraine Baines McFly'),
+('24', 'George McFly'),
+('25', 'Biff Tannen'),
+('26', 'Forrest Gump'),
+('27', 'Jenny Curran'),
+('28', 'Lieutenant Dan Taylor'),
+('29', 'Mrs. Gump'),
+('30', 'Eddie Valiant'),
+('31', 'Judge Doom'),
+('32', 'Dolores'),
+('33', 'Roger Rabbit'),
+('34', 'Indiana Jones'),
+('35', 'Professor Henry Jones'),
+('36', 'Elsa Schneider'),
+('37', 'Walter Donovan'),
+('38', 'Alan Parrish'),
+('39', 'Judy Shepherd'),
+('40', 'Peter Shepherd'),
+('41', 'Sarah Whittle'),
+('42', 'Clara Clayton');
 
 -- Tabla PELICULAS_GENEROS
 INSERT INTO `PELICULAS_GENEROS` (`ID_Pelicula`,`ID_Genero`) VALUES
@@ -653,71 +716,71 @@ INSERT INTO `Gano_PERSONA_PREMIO` (`ID_Premio`,`ID_Persona`) VALUES
 ('47', '6');
 
 -- Tabla Participacion_PELICULAS_PERSONAS
-INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_Rol`) VALUES
-('1', '597', '1'),
-('2', '597', '2'),
-('3', '597', '2'),
-('4', '597', '3'),
-('5', '597', '3'),
-('6', '11', '1'),
-('7', '11', '2'),
-('8', '11', '2'),
-('9', '11', '3'),
-('10', '11', '3'),
-('11', '129', '1'),
-('12', '129', '4'),
-('13', '129', '4'),
-('14', '129', '4'),
-('15', '129', '4'),
-('16', '59170', '1'),
-('17', '59170', '4'),
-('18', '59170', '4'),
-('19', '59170', '4'),
-('20', '59170', '4'),
-('21', '197', '1'),
-('21', '197', '2'),
-('22', '197', '3'),
-('23', '197', '2'),
-('24', '197', '3'),
-('25', '105', '1'),
-('26', '105', '2'),
-('27', '105', '3'),
-('28', '105', '3'),
-('29', '105', '3'),
-('46', '105', '3'),
-('25', '13', '1' ),
-('30', '13', '2'),
-('31', '13', '3'),
-('32', '13', '3'),
-('33', '13', '3'),
-('25', '856', '1'),
-('34', '856', '2'),
-('27', '856', '3'),
-('35', '856', '3'),
-('36', '856', '4'),
-('37', '89', '1'),
-('9', '89', '2'),
-('38', '89', '3'),
-('39', '89', '3'),
-('40', '89', '3'),
-('41', '8844', '1'),
-('42', '8844', '2'),
-('43', '8844', '2'),
-('44', '8844', '3'),
-('45', '8844', '3'),
-('25', '165', '1'),
-('26', '165', '2'),
-('27', '165', '3'),
-('28', '165', '3'),
-('29', '165', '3'),
-('46', '165', '3'),
-('25', '196', '1'),
-('26', '196', '2'),
-('27', '196', '3'),
-('28', '196', '3'),
-('29', '196', '3'),
-('46', '196', '3'),
-('47', '196', '3');
+INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_Rol`, `ID_Papel`) VALUES
+('1', '597', '1', '0'),
+('2', '597', '2', '1'),
+('3', '597', '2', '2'),
+('4', '597', '3', '3'),
+('5', '597', '3', '4'),
+('6', '11', '1', '0'),
+('7', '11', '2', '5'),
+('8', '11', '2', '6'),
+('9', '11', '3', '7'),
+('10', '11', '3', '8'),
+('11', '129', '1', '0'),
+('12', '129', '4', '9'),
+('13', '129', '4', '10'),
+('14', '129', '4', '11'),
+('15', '129', '4', '12'),
+('16', '59170', '1', '0'),
+('17', '59170', '4', '13'),
+('18', '59170', '4', '14'),
+('19', '59170', '4', '15'),
+('20', '59170', '4', '16'),
+('21', '197', '1', '0'),
+('21', '197', '2', '17'),
+('22', '197', '3', '18'),
+('23', '197', '2', '19'),
+('24', '197', '3', '20'),
+('25', '105', '1', '0'),
+('26', '105', '2', '21'),
+('27', '105', '3', '22'),
+('28', '105', '3', '23'),
+('29', '105', '3', '24'),
+('46', '105', '3', '25'),
+('25', '13', '1', '0'),
+('30', '13', '2', '26'),
+('31', '13', '3', '27'),
+('32', '13', '3', '28'),
+('33', '13', '3', '29'),
+('25', '856', '1', '0'),
+('34', '856', '2', '30'),
+('27', '856', '3', '31'),
+('35', '856', '3', '32'),
+('36', '856', '4', '33'),
+('37', '89', '1', '0'),
+('9', '89', '2', '34'),
+('38', '89', '3', '35'),
+('39', '89', '3', '36'),
+('40', '89', '3', '37'),
+('41', '8844', '1', '0'),
+('42', '8844', '2', '38'),
+('43', '8844', '2', '39'),
+('44', '8844', '3', '40'),
+('45', '8844', '3', '41'),
+('25', '165', '1', '0'),
+('26', '165', '2', '21'),
+('27', '165', '3', '22'),
+('28', '165', '3', '23'),
+('29', '165', '3', '24'),
+('46', '165', '3', '25'),
+('25', '196', '1', '0'),
+('26', '196', '2', '21'),
+('27', '196', '3', '22'),
+('28', '196', '3', '23'),
+('29', '196', '3', '24'),
+('46', '196', '3', '25'),
+('47', '196', '3', '42');
 
 -- Tabla Peliculas_Saga
 INSERT INTO `Peliculas_Saga` (`ID_Pelicula`,`ID_Saga`,`Orden_En_Saga`) VALUES
