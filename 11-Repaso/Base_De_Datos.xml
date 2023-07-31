@@ -223,13 +223,17 @@
         <row name="ID_Rol" null="0" autoincrement="0">
             <datatype>INTEGER</datatype>
         </row>
+        <row name="ID_Papel" null="0" autoincrement="0">
+            <datatype>INTEGER</datatype>
+        </row>
         <key type="PRIMARY" name="">
             <part>ID_Persona</part>
             <part>ID_Pelicula</part>
             <part>ID_Rol</part>
+            <part>ID_Papel</part>
         </key>
     </table>
-    <table x="1214" y="479" name="ROLES">
+    <table x="1242" y="448" name="ROLES">
         <row name="ID_Rol" null="0" autoincrement="1">
             <datatype>INTEGER</datatype>
             <relation table="Participacion_PELICULAS_PERSONAS" row="ID_Rol" />
@@ -248,6 +252,7 @@
         </row>
         <row name="Nombre_Saga" null="1" autoincrement="0">
             <datatype>VARCHAR</datatype>
+            <default>NULL</default>
         </row>
         <key type="PRIMARY" name="">
             <part>ID_Saga</part>
@@ -256,6 +261,7 @@
     <table x="658" y="369" name="Peliculas_Saga">
         <row name="ID_Saga" null="1" autoincrement="0">
             <datatype>INTEGER</datatype>
+            <default>NULL</default>
         </row>
         <row name="ID_Pelicula" null="0" autoincrement="0">
             <datatype>INTEGER</datatype>
@@ -266,6 +272,19 @@
         <key type="PRIMARY" name="">
             <part>ID_Saga</part>
             <part>ID_Pelicula</part>
+        </key>
+    </table>
+    <table x="1206" y="577" name="PAPELES">
+        <row name="ID_Papel" null="0" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <relation table="Participacion_PELICULAS_PERSONAS" row="ID_Papel" />
+        </row>
+        <row name="Nombre_Papel" null="0" autoincrement="0">
+            <datatype>CHAR</datatype>
+            <default>'NULL'</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>ID_Papel</part>
         </key>
     </table>
 </sql>
