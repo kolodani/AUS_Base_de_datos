@@ -490,7 +490,11 @@ INSERT INTO `PAPELES` (`ID_Papel`,`Nombre_Papel`) VALUES
 ('39', 'Judy Shepherd'),
 ('40', 'Peter Shepherd'),
 ('41', 'Sarah Whittle'),
-('42', 'Clara Clayton');
+('42', 'Clara Clayton'),
+('43', 'Marty McFly jr'),
+('44', 'Marlene McFly'),
+('45', 'Linda McFly'),
+('46', 'Buford Tannen');
 
 -- Tabla PELICULAS_GENEROS
 INSERT INTO `PELICULAS_GENEROS` (`ID_Pelicula`,`ID_Genero`) VALUES
@@ -780,7 +784,8 @@ INSERT INTO `Participacion_PELICULAS_PERSONAS` (`ID_Persona`,`ID_Pelicula`,`ID_R
 ('28', '196', '3', '23'),
 ('29', '196', '3', '24'),
 ('46', '196', '3', '25'),
-('47', '196', '3', '42');
+('47', '196', '3', '42'),
+('26', '165', '3', '43');
 
 -- Tabla Peliculas_Saga
 INSERT INTO `Peliculas_Saga` (`ID_Pelicula`,`ID_Saga`,`Orden_En_Saga`) VALUES
@@ -882,3 +887,16 @@ SELECT GENEROS.Nombre_Genero, COUNT(PELICULAS.ID_Pelicula) FROM GENEROS, PELICUL
 WHERE GENEROS.ID_Genero = PELICULAS_GENEROS.ID_Genero
 AND PELICULAS.ID_Pelicula = PELICULAS_GENEROS.ID_Pelicula
 GROUP BY GENEROS.Nombre_Genero;
+
+-- 11. nombre de papeles por un mismo actor en una misma película.
+SELECT PERSONAS.Nombre_Persona, PELICULAS.Nombre_Pelicula, PAPELES.Nombre_Papel FROM PERSONAS, PELICULAS, PAPELES, ROLES, Participacion_PELICULAS_PERSONAS AS PPP1 , Participacion_PELICULAS_PERSONAS AS PPP2
+WHERE PERSONAS.ID_Persona = PPP1.ID_Persona
+AND PELICULAS.ID_Pelicula = PPP1.ID_Pelicula
+AND PAPELES.ID_Papel = PPP1.ID_Papel
+AND ROLES.ID_Rol = PPP1.ID_Rol
+AND PPP1.ID_Persona = PPP2.ID_Persona
+AND PPP1.ID_Pelicula = PPP2.ID_Pelicula
+AND PPP1.ID_Rol <> PPP2.ID_Rol
+AND PPP1.ID_Papel <> PPP2.ID_Papel
+AND (PPP1.ID_Rol = 2 OR PPP1.ID_Rol = 3)
+AND (PPP2.ID_Rol = 2 OR PPP2.ID_Rol = 3);
